@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flat Price Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold mb-8 text-center text-gray-800">Flat Price Predictor</h1>
+        <form method="post" class="bg-white shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4 max-w-2xl mx-auto">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="flat_size">
+                        Flat Size
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="flat_size" name="flat_size" type="text" placeholder="e.g., 3BHK" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="location">
+                        Location
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="location" name="location" type="text" placeholder="e.g., Mumbai" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="builder_rating">
+                        Builder's Rating
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="builder_rating" name="builder_rating" type="text" placeholder="A/B/C" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="area_type">
+                        Area Type
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="area_type" name="area_type" type="text" placeholder="e.g., Commercial" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="neighborhood_tier">
+                        Neighborhood Tier
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="neighborhood_tier" name="neighborhood_tier" type="text" placeholder="e.g., Mid-Tier" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="crime_rate">
+                        Crime Rate
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="crime_rate" name="crime_rate" type="text" placeholder="Low/Medium/High" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="floor_number">
+                        Floor Number
+                    </label>
+                    <input type="range" min="1" max="50" value="10" class="slider" id="floor_number" name="floor_number" required>
+                    <output for="floor_number" class="text-gray-700 text-sm mt-1 block">10</output>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="age_of_property">
+                        Age of Property
+                    </label>
+                    <input type="range" min="0" max="50" value="5" class="slider" id="age_of_property" name="age_of_property" required>
+                    <output for="age_of_property" class="text-gray-700 text-sm mt-1 block">5</output>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nearby_amenities">
+                        Nearby Amenities
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nearby_amenities" name="nearby_amenities" type="text" placeholder="Basic/Advanced" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="green_cover">
+                        Green Cover
+                    </label>
+                    <input type="range" min="0" max="1" step="0.01" value="0.5" class="slider" id="green_cover" name="green_cover" required>
+                    <output for="green_cover" class="text-gray-700 text-sm mt-1 block">0.50</output>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="market_demand">
+                        Market Demand
+                    </label>
+                    <input type="range" min="0" max="1" step="0.01" value="0.5" class="slider" id="market_demand" name="market_demand" required>
+                    <output for="market_demand" class="text-gray-700 text-sm mt-1 block">0.50</output>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="security_features">
+                        Security Features
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="security_features" name="security_features" type="text" placeholder="Basic/Advanced" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="rera_approved">
+                        RERA-Approved
+                    </label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="rera_approved" name="rera_approved" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="urban_integration_index">
+                        Urban Integration Index
+                    </label>
+                    <input type="range" min="0" max="1" step="0.01" value="0.5" class="slider" id="urban_integration_index" name="urban_integration_index" required>
+                    <output for="urban_integration_index" class="text-gray-700 text-sm mt-1 block">0.50</output>
+                </div>
+            </div>
+            <div class="flex items-center justify-center mt-6">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Predict Price
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const sliders = document.querySelectorAll('input[type="range"]');
+        sliders.forEach(slider => {
+            const output = slider.nextElementSibling;
+            slider.addEventListener('input', function() {
+                output.textContent = parseFloat(this.value).toFixed(2);
+            });
+        });
+    </script>
+</body>
+</html>
+
