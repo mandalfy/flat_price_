@@ -1,4 +1,4 @@
-# Flat Price Prediction Project
+# Flat Price Prediction Using Django
 
 This project uses machine learning to predict the price of a flat based on various features and also calculates a feasibility score for the provided input data. The model is built using **Random Forest Regressor** and is deployed through a **Django web application**.
 
