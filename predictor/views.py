@@ -1,10 +1,17 @@
-from django.shortcuts import render
+#Group 2(Flat price predictor with feasibilty calculator)
+#group members
+#Avinish-Group Leader(ML logic for finding the flat's price)
+#Shibham-FrontEnd as well modifying some backend logics.
+#Rahul-Debugging 
+#Nitin-Makes code prettier and add comments for easy understanding and perform alpha testing
+
+from django.shortcuts import render   
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 
-# Load the dataset
+# Load the dataset of flat prices
 data = pd.read_csv('updated_flat_prices_dataset.csv')
 
 # Preprocess the data
@@ -12,11 +19,12 @@ data = pd.get_dummies(data, drop_first=True)
 X = data.drop('Flat Price (in Lakhs)', axis=1, errors='ignore')
 y = data.get('Flat Price (in Lakhs)')
 
-# Train the model
+# This is for train the model here we used the randomForestregressor model for training
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
+ # The Feasibility Score is a numerical rating that reflects the overall feasibility of a project
 def calculate_feasibility(input_data, dataset):
     score = 0
     total_features = len(input_data)
@@ -46,9 +54,10 @@ def predict_price(input_data):
 
     return predicted_price, feasibility_score
 
+#This part is for the input from user that what the features they are looking in the flat
 def home(request):
     if request.method == 'POST':
-        input_data = {
+        input_data = {           
             'Flat Size': request.POST.get('flat_size'),
             'Location': request.POST.get('location'),
             'Builder\'s Rating': request.POST.get('builder_rating'),
@@ -65,8 +74,8 @@ def home(request):
             'Urban Integration Index': float(request.POST.get('urban_integration_index')),
         }
         
-        predicted_price, feasibility_score = predict_price(input_data)
-        
+        predicted_price, feasibility_score = predict_price(input_data)#This is for predicting price and for feasibility score-
+                                                                       
         return render(request, 'predictor/result.html', {
             'predicted_price': round(predicted_price, 2),
             'feasibility_score': round(feasibility_score, 2),
