@@ -52,7 +52,14 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="flat_size">
                         Flat Size
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="flat_size" name="flat_size" type="text" placeholder="e.g., 3BHK" required>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="flat_size" name="flat_size" required>
+                        <option value="">Select Flat Size</option>
+                        <option value="1BHK">1BHK</option>
+                        <option value="2BHK">2BHK</option>
+                        <option value="3BHK">3BHK</option>
+                        <option value="4BHK">4BHK</option>
+                        <option value="5BHK">5BHK</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="location">
@@ -64,25 +71,45 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="builder_rating">
                         Builder's Rating
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="builder_rating" name="builder_rating" type="text" placeholder="A/B/C" required>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="builder_rating" name="builder_rating" required>
+                        <option value="">Select Builder's Rating</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="area_type">
                         Area Type
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="area_type" name="area_type" type="text" placeholder="e.g., Commercial" required>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="area_type" name="area_type" required>
+                        <option value="">Select Area Type</option>
+                        <option value="Residential">Residential</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Mixed">Mixed</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="neighborhood_tier">
                         Neighborhood Tier
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="neighborhood_tier" name="neighborhood_tier" type="text" placeholder="e.g., Mid-Tier" required>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="neighborhood_tier" name="neighborhood_tier" required>
+                        <option value="">Select Neighborhood Tier</option>
+                        <option value="High-Tier">High-Tier</option>
+                        <option value="Mid-Tier">Mid-Tier</option>
+                        <option value="Low-Tier">Low-Tier</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="crime_rate">
                         Crime Rate
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="crime_rate" name="crime_rate" type="text" placeholder="Low/Medium/High" required>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="crime_rate" name="crime_rate" required>
+                        <option value="">Select Crime Rate</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="floor_number">
@@ -102,7 +129,11 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="nearby_amenities">
                         Nearby Amenities
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nearby_amenities" name="nearby_amenities" type="text" placeholder="Basic/Advanced" required>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nearby_amenities" name="nearby_amenities" required>
+                        <option value="">Select Nearby Amenities</option>
+                        <option value="Basic">Basic</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="green_cover">
@@ -122,7 +153,11 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="security_features">
                         Security Features
                     </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="security_features" name="security_features" type="text" placeholder="Basic/Advanced" required>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="security_features" name="security_features" required>
+                        <option value="">Select Security Features</option>
+                        <option value="Basic">Basic</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="rera_approved">
@@ -159,4 +194,3 @@
     </script>
 </body>
 </html>
-
